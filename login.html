@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/login.css">
+		<title>ログイン</title>
+	</head>
+	
+	<body>
+		<div id="main-wrap">
+			<div id="title-wrap">
+				<h1 class="title">Team<span style="color: red;">Up</span></h1>
+				<h2 class="sub-title">We ourselves will create the future that doesn't exist here now.</h2>
+				<!-- <h2 class="sub-title"></h2> -->
+			</div>
+			
+			<div id="login-form-wrap">
+				<form action="" method="post">
+					<input type="email" placeholder="メールアドレス" class="input text"/>
+					<input type="password" placeholder="パスワード" class="input pass"/>
+					<input type="submit" value="ログイン" class="login-btn"/>
+					
+				</form>
+			</div>
+			
+			<div id="sub-content-wrap">
+				<h2 class="sub-title">TeamUpはエンジニアのプロフィールサイトです</h2>
+				<h2 class="sub-title">シンプル会員登録は<u><span id="regi-modal-open">こちら</span></u></h2>
+			</div>
+
+<!------------------ 会員登録モーダル --------------------------------------------------->
+			<div id="regi-form-mask" class="hidden"></div>
+			<div id="regi-form-modal" class="hidden">
+				<u><h2 style="font-size: 25px;">会員登録</h2></u>
+				<form action="" method="post" class="regi-form">
+					<input type="email" placeholder="メールアドレス" class="input regi-input"/><br>
+					<input type="password" placeholder="パスワード" class="input regi-input" /><br>
+					<input type="password" placeholder="パスワード確認用" class="input regi-input"/><br>
+					<a href="" target="_blank" rel="noopener noreferrer">利用規約</a>に同意する<input type="checkbox" value="ok" class="regi-check"><br>
+					<input type="submit" value="ログイン" class="login-btn register-btn"/><br><br>
+					<span id="close">閉じる</span>
+				</form>
+			</div>
+<!--------------- 会員登録モーダルここまで --------------------------------------------------->
+		</div>
+
+		<script>
+			registerModal();
+			//会員登録モーダル
+			function registerModal() {
+				const open = document.getElementById('regi-modal-open');
+				const close = document.getElementById('close');
+				const modal = document.getElementById('regi-form-modal');
+				const mask = document.getElementById('regi-form-mask');
+
+				open.addEventListener('click',()=>{
+					modal.classList.remove('hidden');
+					mask.classList.remove('hidden');
+				});
+					
+				close.addEventListener('click',()=>{
+					modal.classList.add('hidden');
+					mask.classList.add('hidden');
+				});
+
+				mask.addEventListener('click',()=>{
+					close.click();
+				});
+			}
+		</script>
+	</body>
+</html>
